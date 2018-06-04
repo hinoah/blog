@@ -3,19 +3,22 @@
 <head>
     <meta charset="utf-8">
     
-    <title>Hello World | Hexo</title>
+    <title>JVM 初窥(一) JVM内存区域划分 | Hexo</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+    <meta name="description" content="Java 虚拟机（下文简称JVM）在运行时，会将其管理的内存划分成几个部分。本文将介绍 JVM 是如何划分内存区域，每个区域服务于哪些对象，作用是什么。 运行时数据区域根据《Java虚拟机规范》，将JVM内存区域划分为如下图所示的几块。 1.程序计数器（Program Counter Register）程序计数器相对于其他JVM内存区域占用较少的内存空间，它相当于是当前线程执行字节码的行号指示器。">
+<meta name="keywords" content="JVM,Java虚拟机">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://yoursite.com/2018/05/03/hello-world/index.html">
+<meta property="og:title" content="JVM 初窥(一) JVM内存区域划分">
+<meta property="og:url" content="http://yoursite.com/2018/05/06/JVM-初窥-一-JVM内存区域划分/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta property="og:description" content="Java 虚拟机（下文简称JVM）在运行时，会将其管理的内存划分成几个部分。本文将介绍 JVM 是如何划分内存区域，每个区域服务于哪些对象，作用是什么。 运行时数据区域根据《Java虚拟机规范》，将JVM内存区域划分为如下图所示的几块。 1.程序计数器（Program Counter Register）程序计数器相对于其他JVM内存区域占用较少的内存空间，它相当于是当前线程执行字节码的行号指示器。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-05-03T07:54:14.070Z">
+<meta property="og:image" content="https://www.hdwallpapers.net/previews/starry-night-over-corsica-986.jpg">
+<meta property="og:updated_time" content="2018-05-08T06:12:57.244Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta name="twitter:title" content="JVM 初窥(一) JVM内存区域划分">
+<meta name="twitter:description" content="Java 虚拟机（下文简称JVM）在运行时，会将其管理的内存划分成几个部分。本文将介绍 JVM 是如何划分内存区域，每个区域服务于哪些对象，作用是什么。 运行时数据区域根据《Java虚拟机规范》，将JVM内存区域划分为如下图所示的几块。 1.程序计数器（Program Counter Register）程序计数器相对于其他JVM内存区域占用较少的内存空间，它相当于是当前线程执行字节码的行号指示器。">
+<meta name="twitter:image" content="https://www.hdwallpapers.net/previews/starry-night-over-corsica-986.jpg">
     
 
     
@@ -204,7 +207,7 @@
 </aside>
 
             
-            <section id="main"><article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
+            <section id="main"><article id="post-JVM-初窥-一-JVM内存区域划分" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -212,7 +215,7 @@
                 
     
         <h1 class="article-title" itemprop="name">
-            Hello World
+            JVM 初窥(一) JVM内存区域划分
         </h1>
     
 
@@ -221,31 +224,57 @@
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2018/05/03/hello-world/">
-            <time datetime="2018-05-03T07:54:14.070Z" itemprop="datePublished">2018-05-03</time>
+        <a href="/2018/05/06/JVM-初窥-一-JVM内存区域划分/">
+            <time datetime="2018-05-05T16:02:13.000Z" itemprop="datePublished">2018-05-06</time>
         </a>
     </div>
 
 
                         
                         
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/JVM/">JVM</a>, <a class="tag-link" href="/tags/Java虚拟机/">Java虚拟机</a>
+    </div>
+
                     </div>
                 
             </header>
         
         
+<div class="article-gallery">
+    
+    <a class="gallery-item" href="https://www.hdwallpapers.net/previews/starry-night-over-corsica-986.jpg" rel="gallery_cjgtkumcy00003lw0opk63wra">
+        <img src="https://www.hdwallpapers.net/previews/starry-night-over-corsica-986.jpg" itemprop="image" />
+    </a>
+    
+</div>
+
         <div class="article-entry" itemprop="articleBody">
         
             
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+            <p>Java 虚拟机（下文简称JVM）在运行时，会将其管理的内存划分成几个部分。本文将介绍 JVM 是如何划分内存区域，每个区域服务于哪些对象，作用是什么。</p>
+<h2 id="运行时数据区域"><a href="#运行时数据区域" class="headerlink" title="运行时数据区域"></a>运行时数据区域</h2><p>根据《Java虚拟机规范》，将JVM内存区域划分为如下图所示的几块。<br><img src="http://p8e6biisu.bkt.clouddn.com/blogJVM%E5%86%85%E5%AD%98%E5%88%92%E5%88%86.jpeg" alt=""></p>
+<h3 id="1-程序计数器（Program-Counter-Register）"><a href="#1-程序计数器（Program-Counter-Register）" class="headerlink" title="1.程序计数器（Program Counter Register）"></a>1.程序计数器（Program Counter Register）</h3><p>程序计数器相对于其他JVM内存区域占用较少的内存空间，它相当于是当前线程执行字节码的行号指示器。JVM中的多线程会根据处理器分配的时间片轮流占用处理器执行程序代码，在线程切换后，为了回到执行的正确位置，每个线程都必须有一个独占的程序计数器。这里的独占指各个线程的程序计数器互不影响，数据独立存储，所以该块内存区域是线程隔离的内存。</p>
+<p>虚拟机规范规定，如果线程执行的是一个Java方法，则程序计数器记录的是正在执行的虚拟机字节码指令的地址，JVM是把class文件转化成（通过解释器或JIT编译器）字节码去执行的；如果执行的是一个native方法，则这个计数器记录的值为undefined。</p>
+<p>该区域是唯一一个不会发生OOM（内存溢出）的内存区域。</p>
+<h3 id="2-虚拟机栈（VM-Stack）"><a href="#2-虚拟机栈（VM-Stack）" class="headerlink" title="2.虚拟机栈（VM Stack）"></a>2.虚拟机栈（VM Stack）</h3><p>虚拟机栈又经常被称为Java栈，是Java方法执行的内存模型，它也是线程隔离的，不同的线程都有自己的Java栈。在线程执行Java方法时，会在栈顶中创建一个栈帧（Stack Frame），栈帧中存放局部变量表，操作数栈，方法出口，运行池常量池的引用等数据。每一个 Java 方法从调用到执行结束的过程，就对应着一个栈帧在虚拟机栈中入栈和出栈的过程。</p>
+<p>如果方法的调用链过深，超过了JVM所允许的栈最大深度，则会抛出 StackOverflowError 的异常。如果虚拟机栈动态扩展但无法申请到内存，则会抛出 OOM 异常。</p>
+<h3 id="3-本地方法栈（Native-Method-Stack）"><a href="#3-本地方法栈（Native-Method-Stack）" class="headerlink" title="3.本地方法栈（Native Method Stack）"></a>3.本地方法栈（Native Method Stack）</h3><p>本地方法栈和虚拟机栈类似，都是用于执行方法时在栈中记录方法栈帧信息的。只不过本地方法栈执行的是native方法，也因此叫做“本地”方法栈。</p>
+<p>JVM 规范没有强制指定如何实现本地方法栈以及实用的方法，所以不同的 JVM 会有不同的实现。HotSpot 虚拟机是将虚拟机栈和本地方法合二为一来解决这个问题的。</p>
+<p>本地方法栈也同虚拟机栈一样会抛出 StackOverflowError 和 OOM 异常。</p>
+<h3 id="4-Java-堆（Java-Heap）"><a href="#4-Java-堆（Java-Heap）" class="headerlink" title="4.Java 堆（Java Heap）"></a>4.Java 堆（Java Heap）</h3><p>普遍来说，Java 堆是 JVM 内存区域中最大的一块区域，在 JVM 启动时创建，并且被所有线程共享。如同 JVM 规范的规定，所有的对象实例以及数组都在 Java 堆上分配。</p>
+<p>Java 堆中，又可以细分为新生代和老年代，新生代又可细分为 Eden 空间，From Survivor 空间以及 To Survivor 空间。JVM 的垃圾回收（Garbage Collection）主要就是在这块内存区域中发生的，垃圾回收的分代收集就是针对于 Java 堆中不同的划分进行 GC 的。</p>
+<p><img src="http://p8e6biisu.bkt.clouddn.com/Java%E5%A0%86.jpg" alt="Java 堆"></p>
+<p>Java 堆的大小可以在启动时通过参数 -Xmx 和 -Xms 指定。如果在Java 堆上分配对象时没有申请到足够的内存，则会抛出 OOM 异常。</p>
+<h3 id="5-方法区（Method-Area）"><a href="#5-方法区（Method-Area）" class="headerlink" title="5.方法区（Method Area）"></a>5.方法区（Method Area）</h3><p>方法区中存放了 JVM 加载的类信息、常量、静态变量、即时编译器编译后的代码等数据。这块内存区域也是被各个线程共享的。方法区又被称为非堆（Non-Heap），用于与堆区分开。</p>
+<p>当方法区无法满足内存分配需求时，将会抛出 OOM 异常。</p>
+<h4 id="常量池"><a href="#常量池" class="headerlink" title="常量池"></a>常量池</h4><ul>
+<li>静态常量池：指 class 文件中的常量池，包括字面量（文本字符串、final类型的常量），还包括类、方法的信息。</li>
+<li>运行时常量池：JVM 在类加载后讲 class 文件中的常量池载入到<strong>堆内存</strong>中，方法区中保存了这些<strong>对象的引用</strong>。</li>
+</ul>
+<h4 id="永久代（PermGen）-和-元空间（Metaspace）"><a href="#永久代（PermGen）-和-元空间（Metaspace）" class="headerlink" title="永久代（PermGen） 和 元空间（Metaspace）"></a>永久代（PermGen） 和 元空间（Metaspace）</h4><p>方法区其实说到底就是 <strong>JVM 规范</strong>中定义的一个概念，并没有规定具体要将方法区存放到什么位置。在 JDK6 和 JDK7 HotSpot 虚拟机的实现中，方法区是作为 Java 堆的一部分而存在的，被称为<strong>永久代</strong>，其大小通过 -XX:MaxPermSize 来指定。</p>
+<p>但这样的实现是不合理的，一方面永久代运行时遇到的 GC 很少，另一方面永久代可能会因为内存不足抛出 OOM 的异常。所以在 JDK 8 的 HotSpot 虚拟机中，移除了永久代这部分空间，取而代之是<strong>元空间</strong>。元空间存储在本地内存中，这部分内存不属于 JVM 的内存区域，因此不会受限于 JVM 的内存限制。其大小可以通过 -XX:MaxMetaspaceSize 指定，若不指定这个参数，则会在运行时根据需求动态调整。</p>
 
         
         </div>
@@ -256,7 +285,7 @@
 
 </div>
 
-    <a data-url="http://yoursite.com/2018/05/03/hello-world/" data-id="cjgtkumd200013lw0lmuuhddl" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://yoursite.com/2018/05/06/JVM-初窥-一-JVM内存区域划分/" data-id="cjgtkumcy00003lw0opk63wra" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -331,15 +360,11 @@
         
 <nav id="article-nav">
     
-        <a href="/2018/05/06/JVM-初窥-一-JVM内存区域划分/" id="article-nav-newer" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">Newer</strong>
-            <div class="article-nav-title">
-                
-                    JVM 初窥(一) JVM内存区域划分
-                
-            </div>
-        </a>
     
+        <a href="/2018/05/03/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Older</strong>
+            <div class="article-nav-title">Hello World</div>
+        </a>
     
 </nav>
 

@@ -1,90 +1,394 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8">
-  
-
-  
-  <title>Hexo</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
+    <meta charset="utf-8">
+    
+    <title>Hexo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta property="og:type" content="website">
 <meta property="og:title" content="Hexo">
 <meta property="og:url" content="http://yoursite.com/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:locale" content="default">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo">
-  
-    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/favicon.png">
-  
-  
-    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  
-  <link rel="stylesheet" href="/css/style.css">
+    
+
+    
+        <link rel="alternate" href="/" title="Hexo" type="application/atom+xml" />
+    
+
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/open-sans/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/libs/jquery/2.1.3/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+    
+    
+
+
 </head>
 
 <body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">Hexo</a>
-      </h1>
-      
-    </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
-      </div>
-    </div>
-  </div>
-</header>
-      <div class="outer">
-        <section id="main">
-  
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/05/03/hello-world/" class="article-date">
-  <time datetime="2018-05-03T07:54:14.070Z" itemprop="datePublished">2018-05-03</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/05/03/hello-world/">Hello World</a>
-    </h1>
-  
+    <div id="container">
+        <header id="header">
+    <div id="header-main" class="header-inner">
+        <div class="outer">
+            <a href="/" id="logo">
+                <i class="logo"></i>
+                <span class="site-title">Hexo</span>
+            </a>
+            <nav id="main-nav">
+                
+                    <a class="main-nav-link" href="/.">首页</a>
+                
+                    <a class="main-nav-link" href="/archives">归档</a>
+                
+                    <a class="main-nav-link" href="/categories">分类</a>
+                
+                    <a class="main-nav-link" href="/tags">标签</a>
+                
+                    <a class="main-nav-link" href="/about">关于</a>
+                
+            </nav>
+            
+                
+                <nav id="sub-nav">
+                    <div class="profile" id="profile-nav">
+                        <a id="profile-anchor" href="javascript:;">
+                            <img class="avatar" src="https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1525769067516&amp;di=f9bf15c0f47bcd5e7069963718492ffb&amp;imgtype=0&amp;src=http%3A%2F%2Fimg.25pp.com%2Fuploadfile%2Fyouxi%2Fimages%2F2012%2F0708%2F20120708110740907.jpg" />
+                            <i class="fa fa-caret-down"></i>
+                        </a>
+                    </div>
+                </nav>
+            
+            <div id="search-form-wrap">
 
-      </header>
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+        </div>
+    </div>
+    <div id="main-nav-mobile" class="header-sub header-inner">
+        <table class="menu outer">
+            <tr>
+                
+                    <td><a class="main-nav-link" href="/.">首页</a></td>
+                
+                    <td><a class="main-nav-link" href="/archives">归档</a></td>
+                
+                    <td><a class="main-nav-link" href="/categories">分类</a></td>
+                
+                    <td><a class="main-nav-link" href="/tags">标签</a></td>
+                
+                    <td><a class="main-nav-link" href="/about">关于</a></td>
+                
+                <td>
+                    
+    <div class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+    </div>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+</header>
+
+        <div class="outer">
+            
+                
+
+<aside id="profile" class="profile-fixed">
+    <div class="inner profile-inner">
+        <div class="base-info profile-block">
+            <img id="avatar" src="https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1525769067516&amp;di=f9bf15c0f47bcd5e7069963718492ffb&amp;imgtype=0&amp;src=http%3A%2F%2Fimg.25pp.com%2Fuploadfile%2Fyouxi%2Fimages%2F2012%2F0708%2F20120708110740907.jpg" />
+            <h2 id="name">Hinoah</h2>
+            <h3 id="title">Code in Java</h3>
+            <span id="location"><i class="fa fa-map-marker"></i>浙江 杭州</span>
+            <a id="follow" target="_blank" href="https://github.com/ppoffice/">FOLLOW</a>
+        </div>
+        <div class="article-info profile-block">
+            <div class="article-info-block">
+                2
+                <span>posts</span>
+            </div>
+            <div class="article-info-block">
+                2
+                <span>tags</span>
+            </div>
+        </div>
+        
+        <div class="profile-block social-links">
+            <table>
+                <tr>
+                    
+                    
+                    <td>
+                        <a href="https://github.com/hinoah" target="_blank" title="github" class=tooltip>
+                            <i class="fa fa-github"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="/" target="_blank" title="rss" class=tooltip>
+                            <i class="fa fa-rss"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="https://weibo.com/u/2367372167" target="_blank" title="weibo" class=tooltip>
+                            <i class="fa fa-weibo"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="https://book.douban.com/mine?status=collect" target="_blank" title="book" class=tooltip>
+                            <i class="fa fa-book"></i>
+                        </a>
+                    </td>
+                    
+                </tr>
+            </table>
+        </div>
+        
+    </div>
+</aside>
+
+            
+            <section id="main">
+    <article id="post-JVM-初窥-一-JVM内存区域划分" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
     
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
+        <h1 itemprop="name">
+            <a class="article-title" href="/2018/05/06/JVM-初窥-一-JVM内存区域划分/">JVM 初窥(一) JVM内存区域划分</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2018/05/06/JVM-初窥-一-JVM内存区域划分/">
+            <time datetime="2018-05-05T16:02:13.000Z" itemprop="datePublished">2018-05-06</time>
+        </a>
+    </div>
+
+
+                        
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/JVM/">JVM</a>, <a class="tag-link" href="/tags/Java虚拟机/">Java虚拟机</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+<div class="article-gallery">
+    
+    <a class="gallery-item" href="https://www.hdwallpapers.net/previews/starry-night-over-corsica-986.jpg" rel="gallery_cjgtkumcy00003lw0opk63wra">
+        <img src="https://www.hdwallpapers.net/previews/starry-night-over-corsica-986.jpg" itemprop="image" />
+    </a>
+    
+</div>
+
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <p>Java 虚拟机（下文简称JVM）在运行时，会将其管理的内存划分成几个部分。本文将介绍 JVM 是如何划分内存区域，每个区域服务于哪些对象，作用是什么。</p>
+<h2 id="运行时数据区域"><a href="#运行时数据区域" class="headerlink" title="运行时数据区域"></a>运行时数据区域</h2><p>根据《Java虚拟机规范》，将JVM内存区域划分为如下图所示的几块。<br><img src="http://p8e6biisu.bkt.clouddn.com/blogJVM%E5%86%85%E5%AD%98%E5%88%92%E5%88%86.jpeg" alt=""></p>
+<h3 id="1-程序计数器（Program-Counter-Register）"><a href="#1-程序计数器（Program-Counter-Register）" class="headerlink" title="1.程序计数器（Program Counter Register）"></a>1.程序计数器（Program Counter Register）</h3><p>程序计数器相对于其他JVM内存区域占用较少的内存空间，它相当于是当前线程执行字节码的行号指示器。JVM中的多线程会根据处理器分配的时间片轮流占用处理器执行程序代码，在线程切换后，为了回到执行的正确位置，每个线程都必须有一个独占的程序计数器。这里的独占指各个线程的程序计数器互不影响，数据独立存储，所以该块内存区域是线程隔离的内存。</p>
+<p>虚拟机规范规定，如果线程执行的是一个Java方法，则程序计数器记录的是正在执行的虚拟机字节码指令的地址，JVM是把class文件转化成（通过解释器或JIT编译器）字节码去执行的；如果执行的是一个native方法，则这个计数器记录的值为undefined。</p>
+<p>该区域是唯一一个不会发生OOM（内存溢出）的内存区域。</p>
+<h3 id="2-虚拟机栈（VM-Stack）"><a href="#2-虚拟机栈（VM-Stack）" class="headerlink" title="2.虚拟机栈（VM Stack）"></a>2.虚拟机栈（VM Stack）</h3><p>虚拟机栈又经常被称为Java栈，是Java方法执行的内存模型，它也是线程隔离的，不同的线程都有自己的Java栈。在线程执行Java方法时，会在栈顶中创建一个栈帧（Stack Frame），栈帧中存放局部变量表，操作数栈，方法出口，运行池常量池的引用等数据。每一个 Java 方法从调用到执行结束的过程，就对应着一个栈帧在虚拟机栈中入栈和出栈的过程。</p>
+<p>如果方法的调用链过深，超过了JVM所允许的栈最大深度，则会抛出 StackOverflowError 的异常。如果虚拟机栈动态扩展但无法申请到内存，则会抛出 OOM 异常。</p>
+<h3 id="3-本地方法栈（Native-Method-Stack）"><a href="#3-本地方法栈（Native-Method-Stack）" class="headerlink" title="3.本地方法栈（Native Method Stack）"></a>3.本地方法栈（Native Method Stack）</h3><p>本地方法栈和虚拟机栈类似，都是用于执行方法时在栈中记录方法栈帧信息的。只不过本地方法栈执行的是native方法，也因此叫做“本地”方法栈。</p>
+<p>JVM 规范没有强制指定如何实现本地方法栈以及实用的方法，所以不同的 JVM 会有不同的实现。HotSpot 虚拟机是将虚拟机栈和本地方法合二为一来解决这个问题的。</p>
+<p>本地方法栈也同虚拟机栈一样会抛出 StackOverflowError 和 OOM 异常。</p>
+<h3 id="4-Java-堆（Java-Heap）"><a href="#4-Java-堆（Java-Heap）" class="headerlink" title="4.Java 堆（Java Heap）"></a>4.Java 堆（Java Heap）</h3><p>普遍来说，Java 堆是 JVM 内存区域中最大的一块区域，在 JVM 启动时创建，并且被所有线程共享。如同 JVM 规范的规定，所有的对象实例以及数组都在 Java 堆上分配。</p>
+<p>Java 堆中，又可以细分为新生代和老年代，新生代又可细分为 Eden 空间，From Survivor 空间以及 To Survivor 空间。JVM 的垃圾回收（Garbage Collection）主要就是在这块内存区域中发生的，垃圾回收的分代收集就是针对于 Java 堆中不同的划分进行 GC 的。</p>
+<p><img src="http://p8e6biisu.bkt.clouddn.com/Java%E5%A0%86.jpg" alt="Java 堆"></p>
+<p>Java 堆的大小可以在启动时通过参数 -Xmx 和 -Xms 指定。如果在Java 堆上分配对象时没有申请到足够的内存，则会抛出 OOM 异常。</p>
+<h3 id="5-方法区（Method-Area）"><a href="#5-方法区（Method-Area）" class="headerlink" title="5.方法区（Method Area）"></a>5.方法区（Method Area）</h3><p>方法区中存放了 JVM 加载的类信息、常量、静态变量、即时编译器编译后的代码等数据。这块内存区域也是被各个线程共享的。方法区又被称为非堆（Non-Heap），用于与堆区分开。</p>
+<p>当方法区无法满足内存分配需求时，将会抛出 OOM 异常。</p>
+<h4 id="常量池"><a href="#常量池" class="headerlink" title="常量池"></a>常量池</h4><ul>
+<li>静态常量池：指 class 文件中的常量池，包括字面量（文本字符串、final类型的常量），还包括类、方法的信息。</li>
+<li>运行时常量池：JVM 在类加载后讲 class 文件中的常量池载入到<strong>堆内存</strong>中，方法区中保存了这些<strong>对象的引用</strong>。</li>
+</ul>
+<h4 id="永久代（PermGen）-和-元空间（Metaspace）"><a href="#永久代（PermGen）-和-元空间（Metaspace）" class="headerlink" title="永久代（PermGen） 和 元空间（Metaspace）"></a>永久代（PermGen） 和 元空间（Metaspace）</h4><p>方法区其实说到底就是 <strong>JVM 规范</strong>中定义的一个概念，并没有规定具体要将方法区存放到什么位置。在 JDK6 和 JDK7 HotSpot 虚拟机的实现中，方法区是作为 Java 堆的一部分而存在的，被称为<strong>永久代</strong>，其大小通过 -XX:MaxPermSize 来指定。</p>
+<p>但这样的实现是不合理的，一方面永久代运行时遇到的 GC 很少，另一方面永久代可能会因为内存不足抛出 OOM 的异常。所以在 JDK 8 的 HotSpot 虚拟机中，移除了永久代这部分空间，取而代之是<strong>元空间</strong>。元空间存储在本地内存中，这部分内存不属于 JVM 的内存区域，因此不会受限于 JVM 的内存限制。其大小可以通过 -XX:MaxMetaspaceSize 指定，若不指定这个参数，则会在运行时根据需求动态调整。</p>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="http://yoursite.com/2018/05/06/JVM-初窥-一-JVM内存区域划分/" data-id="cjgtkumcy00003lw0opk63wra" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
+    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2018/05/03/hello-world/">Hello World</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2018/05/03/hello-world/">
+            <time datetime="2018-05-03T07:54:14.070Z" itemprop="datePublished">2018-05-03</time>
+        </a>
+    </div>
+
+
+                        
+                        
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
 <h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
 <p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
 <h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
@@ -94,91 +398,226 @@
 <h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
 <p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
 
-      
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="http://yoursite.com/2018/05/03/hello-world/" data-id="cjgtkumd200013lw0lmuuhddl" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+
+        </footer>
     </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/05/03/hello-world/" data-id="cjgqc84qs00008fw0grr0b3ne" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
+    
 </article>
 
 
-  
-
-
 </section>
+            
+                
+<aside id="sidebar">
+   
         
-          <aside id="sidebar">
-  
+    <div class="widget-wrap">
+        <h3 class="widget-title">recent</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/05/06/JVM-初窥-一-JVM内存区域划分/" class="thumbnail">
     
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
 
-  
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2018/05/06/JVM-初窥-一-JVM内存区域划分/" class="title">JVM 初窥(一) JVM内存区域划分</a></p>
+                            <p class="item-date"><time datetime="2018-05-05T16:02:13.000Z" itemprop="datePublished">2018-05-06</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/05/03/hello-world/" class="thumbnail">
     
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
 
-  
-    
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li></ul>
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2018/05/03/hello-world/" class="title">Hello World</a></p>
+                            <p class="item-date"><time datetime="2018-05-03T07:54:14.070Z" itemprop="datePublished">2018-05-03</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
     </div>
-  </div>
 
-
-  
     
-  <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
-    <div class="widget">
-      <ul>
         
-          <li>
-            <a href="/2018/05/03/hello-world/">Hello World</a>
-          </li>
+    
         
-      </ul>
+    <div class="widget-wrap">
+        <h3 class="widget-title">archives</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a><span class="archive-list-count">2</span></li></ul>
+        </div>
     </div>
-  </div>
 
-  
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">tags</h3>
+        <div class="widget">
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/JVM/">JVM</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java虚拟机/">Java虚拟机</a><span class="tag-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">tag cloud</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/JVM/" style="font-size: 10px;">JVM</a> <a href="/tags/Java虚拟机/" style="font-size: 10px;">Java虚拟机</a>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">links</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="http://hexo.io">Hexo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+    
+    <div id="toTop" class="fa fa-angle-up"></div>
 </aside>
-        
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2018 John Doe<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+
+            
+        </div>
+        <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            &copy; 2018 John Doe<br>
+            Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="http://github.com/ppoffice">PPOffice</a>
+        </div>
     </div>
-  </div>
 </footer>
-    </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
+        
+
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
     
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
 
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
 
-
-<script src="/js/script.js"></script>
-
-
-
-  </div>
+    </div>
 </body>
 </html>
