@@ -13,12 +13,13 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="Java 虚拟机（下文简称JVM）在运行时，会将其管理的内存划分成几个部分。本文将介绍 JVM 是如何划分内存区域，每个区域服务于哪些对象，作用是什么。 运行时数据区域根据《Java虚拟机规范》，将JVM内存区域划分为如下图所示的几块。 1.程序计数器（Program Counter Register）程序计数器相对于其他JVM内存区域占用较少的内存空间，它相当于是当前线程执行字节码的行号指示器。">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="https://www.hdwallpapers.net/previews/starry-night-over-corsica-986.jpg">
-<meta property="og:updated_time" content="2018-05-08T06:12:57.244Z">
+<meta property="og:image" content="http://p8e6biisu.bkt.clouddn.com/blogJVM%E5%86%85%E5%AD%98%E5%88%92%E5%88%86.jpeg">
+<meta property="og:image" content="http://p8e6biisu.bkt.clouddn.com/Java%E5%A0%86.jpg">
+<meta property="og:updated_time" content="2018-06-10T07:34:51.647Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JVM 初窥(一) JVM内存区域划分">
 <meta name="twitter:description" content="Java 虚拟机（下文简称JVM）在运行时，会将其管理的内存划分成几个部分。本文将介绍 JVM 是如何划分内存区域，每个区域服务于哪些对象，作用是什么。 运行时数据区域根据《Java虚拟机规范》，将JVM内存区域划分为如下图所示的几块。 1.程序计数器（Program Counter Register）程序计数器相对于其他JVM内存区域占用较少的内存空间，它相当于是当前线程执行字节码的行号指示器。">
-<meta name="twitter:image" content="https://www.hdwallpapers.net/previews/starry-night-over-corsica-986.jpg">
+<meta name="twitter:image" content="http://p8e6biisu.bkt.clouddn.com/blogJVM%E5%86%85%E5%AD%98%E5%88%92%E5%88%86.jpeg">
     
 
     
@@ -242,14 +243,6 @@
             </header>
         
         
-<div class="article-gallery">
-    
-    <a class="gallery-item" href="https://www.hdwallpapers.net/previews/starry-night-over-corsica-986.jpg" rel="gallery_cji09k0sx0000vhw0fcgrp73s">
-        <img src="https://www.hdwallpapers.net/previews/starry-night-over-corsica-986.jpg" itemprop="image" />
-    </a>
-    
-</div>
-
         <div class="article-entry" itemprop="articleBody">
         
             
@@ -275,6 +268,7 @@
 </ul>
 <h4 id="永久代（PermGen）-和-元空间（Metaspace）"><a href="#永久代（PermGen）-和-元空间（Metaspace）" class="headerlink" title="永久代（PermGen） 和 元空间（Metaspace）"></a>永久代（PermGen） 和 元空间（Metaspace）</h4><p>方法区其实说到底就是 <strong>JVM 规范</strong>中定义的一个概念，并没有规定具体要将方法区存放到什么位置。在 JDK6 和 JDK7 HotSpot 虚拟机的实现中，方法区是作为 Java 堆的一部分而存在的，被称为<strong>永久代</strong>，其大小通过 -XX:MaxPermSize 来指定。</p>
 <p>但这样的实现是不合理的，一方面永久代运行时遇到的 GC 很少，另一方面永久代可能会因为内存不足抛出 OOM 的异常。所以在 JDK 8 的 HotSpot 虚拟机中，移除了永久代这部分空间，取而代之是<strong>元空间</strong>。元空间存储在本地内存中，这部分内存不属于 JVM 的内存区域，因此不会受限于 JVM 的内存限制。其大小可以通过 -XX:MaxMetaspaceSize 指定，若不指定这个参数，则会在运行时根据需求动态调整。</p>
+<h3 id="6-直接内存（Direct-Memory）"><a href="#6-直接内存（Direct-Memory）" class="headerlink" title="6.直接内存（Direct Memory）"></a>6.直接内存（Direct Memory）</h3><p>直接内存不属于虚拟机运行时数据区的一部分，其内存的分配也不会受到 Java 堆大小的限制。但是，会受到计算机总内存大小以及处理器寻址空间的限制。如果虚拟机各个内存区域之和大于物理内存限制，也会导致 OOM 异常。<br>JDK 1.4 中加入了 NIO 类，引入了一种基于通道（Channel）与缓冲区（Buffer）的 I/O 方式，其可以使用 Native 方法直接分配堆外内存，然后通过引用访问这块内存进行操作，这样由于了避免在 Java 堆中来回复制数据，可以提高程序的性能。</p>
 
         
         </div>
@@ -285,7 +279,7 @@
 
 </div>
 
-    <a data-url="http://yoursite.com/2018/05/06/JVM-初窥-一-JVM内存区域划分/" data-id="cji09k0sx0000vhw0fcgrp73s" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://yoursite.com/2018/05/06/JVM-初窥-一-JVM内存区域划分/" data-id="cji92b6ji0000bzw0eaohyb4h" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -360,11 +354,15 @@
         
 <nav id="article-nav">
     
-    
-        <a href="/2018/05/03/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">Older</strong>
-            <div class="article-nav-title">Hello World</div>
+        <a href="/2018/06/10/JVM-初窥-二-垃圾收集器/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Newer</strong>
+            <div class="article-nav-title">
+                
+                    JVM 初窥(二) 垃圾回收
+                
+            </div>
         </a>
+    
     
 </nav>
 
@@ -390,6 +388,25 @@
                     <li>
                         
                         <div class="item-thumbnail">
+                            <a href="/2018/06/10/JVM-初窥-二-垃圾收集器/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2018/06/10/JVM-初窥-二-垃圾收集器/" class="title">JVM 初窥(二) 垃圾回收</a></p>
+                            <p class="item-date"><time datetime="2018-06-10T06:10:57.000Z" itemprop="datePublished">2018-06-10</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
                             <a href="/2018/05/06/JVM-初窥-一-JVM内存区域划分/" class="thumbnail">
     
     
@@ -406,25 +423,6 @@
                         </div>
                     </li>
                 
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2018/05/03/hello-world/" class="thumbnail">
-    
-    
-        <span class="thumbnail-image thumbnail-none"></span>
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"></p>
-                            <p class="item-title"><a href="/2018/05/03/hello-world/" class="title">Hello World</a></p>
-                            <p class="item-date"><time datetime="2018-05-03T07:54:14.070Z" itemprop="datePublished">2018-05-03</time></p>
-                        </div>
-                    </li>
-                
             </ul>
         </div>
     </div>
@@ -436,7 +434,7 @@
     <div class="widget-wrap">
         <h3 class="widget-title">archives</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a><span class="archive-list-count">2</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a><span class="archive-list-count">1</span></li></ul>
         </div>
     </div>
 
@@ -445,7 +443,7 @@
     <div class="widget-wrap">
         <h3 class="widget-title">tags</h3>
         <div class="widget">
-            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/JVM/">JVM</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java虚拟机/">Java虚拟机</a><span class="tag-list-count">1</span></li></ul>
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/JVM/">JVM</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java虚拟机/">Java虚拟机</a><span class="tag-list-count">2</span></li></ul>
         </div>
     </div>
 
