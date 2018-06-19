@@ -3,15 +3,20 @@
 <head>
     <meta charset="utf-8">
     
-    <title>Hexo</title>
+    <title>Spring Cloud Zuul 实现服务提供者自定义状态检测 | Hexo</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/index.html">
+    <meta name="description" content="Zuul 用作于 Spring Cloud 的微服务网关，是微服务架构中所有流量的入口。可以配合服务注册中心 Eureka，Zookeeper 用于服务发现。有时候，我们由于某个服务提供者的问题需要手动下线掉该节点，但又不想停用该节点上的进程，有没有什么比较好的办法呢？ zuul 如何判断服务的状态注册于注册中心的服务，zuul 如何判断其当前的健康状态呢。翻看源码，发现 zuul 为我们提供了这">
+<meta name="keywords" content="Spring Cloud,Zuul">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Spring Cloud Zuul 实现服务提供者自定义状态检测">
+<meta property="og:url" content="http://yoursite.com/2018/06/19/Spring-Cloud-Zuul-实现服务提供者自定义状态检测/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Zuul 用作于 Spring Cloud 的微服务网关，是微服务架构中所有流量的入口。可以配合服务注册中心 Eureka，Zookeeper 用于服务发现。有时候，我们由于某个服务提供者的问题需要手动下线掉该节点，但又不想停用该节点上的进程，有没有什么比较好的办法呢？ zuul 如何判断服务的状态注册于注册中心的服务，zuul 如何判断其当前的健康状态呢。翻看源码，发现 zuul 为我们提供了这">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-06-19T15:57:21.860Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="Spring Cloud Zuul 实现服务提供者自定义状态检测">
+<meta name="twitter:description" content="Zuul 用作于 Spring Cloud 的微服务网关，是微服务架构中所有流量的入口。可以配合服务注册中心 Eureka，Zookeeper 用于服务发现。有时候，我们由于某个服务提供者的问题需要手动下线掉该节点，但又不想停用该节点上的进程，有没有什么比较好的办法呢？ zuul 如何判断服务的状态注册于注册中心的服务，zuul 如何判断其当前的健康状态呢。翻看源码，发现 zuul 为我们提供了这">
     
 
     
@@ -166,16 +171,15 @@
 </aside>
 
             
-            <section id="main">
-    <article id="post-Spring-Cloud-Zuul-实现服务提供者自定义状态检测" class="article article-type-post" itemscope itemprop="blogPost">
+            <section id="main"><article id="post-Spring-Cloud-Zuul-实现服务提供者自定义状态检测" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
             <header class="article-header">
                 
     
-        <h1 itemprop="name">
-            <a class="article-title" href="/2018/06/19/Spring-Cloud-Zuul-实现服务提供者自定义状态检测/">Spring Cloud Zuul 实现服务提供者自定义状态检测</a>
+        <h1 class="article-title" itemprop="name">
+            Spring Cloud Zuul 实现服务提供者自定义状态检测
         </h1>
     
 
@@ -295,306 +299,24 @@
         </footer>
     </div>
     
-</article>
-
-
-
-    <article id="post-JVM-初窥-二-垃圾收集器" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
         
-        
-            <header class="article-header">
-                
+<nav id="article-nav">
     
-        <h1 itemprop="name">
-            <a class="article-title" href="/2018/06/10/JVM-初窥-二-垃圾收集器/">JVM 初窥(二) 垃圾回收</a>
-        </h1>
     
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2018/06/10/JVM-初窥-二-垃圾收集器/">
-            <time datetime="2018-06-10T06:10:57.000Z" itemprop="datePublished">2018-06-10</time>
+        <a href="/2018/06/10/JVM-初窥-二-垃圾收集器/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Más viejo</strong>
+            <div class="article-nav-title">JVM 初窥(二) 垃圾回收</div>
         </a>
-    </div>
-
-
-                        
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/JVM/">JVM</a>, <a class="tag-link" href="/tags/Java虚拟机/">Java虚拟机</a>
-    </div>
-
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <p>说起 Java 和 C++ 语言的不同之处，不得不提一下垃圾回收技术。<br>由于垃圾回收器的存在，在编写 Java 代码时，几乎不用去考虑对象的销毁问题，垃圾回收器会在合适的时间，自动回收不再存活的对象。<br>所以，垃圾回收器在工作时，需要思考以下三个问题。</p>
-<blockquote>
-<p>1.哪些内存需要回收？<br>2.什么时候回收？<br>3.如何回收？</p>
-</blockquote>
-<h2 id="哪些内存需要回收"><a href="#哪些内存需要回收" class="headerlink" title="哪些内存需要回收"></a>哪些内存需要回收</h2><p>这个问题放到 Java 堆中，则变成了“哪些对象需要回收”。垃圾回收器回收的是 Java 对象，它需要确定堆中哪些对象还存活，而哪些对象已经死去（不可能再被人和途径使用的对象）。死去的对象是垃圾回收器重点关注的对象。</p>
-<h3 id="1-引用计数法"><a href="#1-引用计数法" class="headerlink" title="1.引用计数法"></a>1.引用计数法</h3><p>简单而言，引用计算法就是给对象添加一个引用计数器，每当该对象被其他地方引用，则给引用计数器加 1，当不再引用时，则引用计数器减 1，当计数器为 0 时，则表示该对象不会再被使用。<br>那虚拟机中采用的是这种算法吗，读者可以先自行思考一下。<br>我们来看一下如下这段代码：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 采用引用计数法的GC</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> hinoah</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span> 2018/6/10 下午4:18</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">GcObject</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> Object instance;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        GcObject o1 = <span class="keyword">new</span> GcObject();</span><br><span class="line">        GcObject o2 = <span class="keyword">new</span> GcObject();</span><br><span class="line">        o1.instance = o2;</span><br><span class="line">        o2.instance = o1;</span><br><span class="line"></span><br><span class="line">        o1 = <span class="keyword">null</span>;</span><br><span class="line">        o2 = <span class="keyword">null</span>;</span><br><span class="line"></span><br><span class="line">        System.gc();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>试问，在20行进行 gc 时，o1、o2对象会被回收吗？<br>答案是，会被回收掉。<br>按照引用计数法的原理，对象o1、o2读存有对方的引用，这时并不会判定o1、o2为不可用的对象，所以不会回收。但实际上这两个对象已经不再可被访问已经不可能再被访问到，所以说这俩对象被回收掉是更合理的做法。<br>由于引用计数器无法解决（或者说很难解决）对象之间循环引用的问题，所以主流 JVM 虚拟机都未采用这种算法作为垃圾回收算法。</p>
-<h3 id="2-可达性分析算法"><a href="#2-可达性分析算法" class="headerlink" title="2.可达性分析算法"></a>2.可达性分析算法</h3><p>JVM 虚拟机真正采用的垃圾回收算法。基本思路是通过一些列“GC Roots”的对象作为起点，从这些对象向下搜索，搜索走过的路径被称为引用链。当从“GC Roots”没有任何引用链指向某个对象时，则证明该对象不可用，可以被回收。如下图所示，1、2、3、4对象被包含在 GC Roots 引用链中，而 5、6对象虽互有关联，但他们都不在 GC Roots 的引用链中，所以他们都会被判定为可回收的对象。</p>
-<p><img src="http://p8e6biisu.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-06-10%20%E4%B8%8B%E5%8D%884.53.23.png" alt="可达性分析算法"></p>
-<h5 id="可作为GC-Roots的对象包含以下几种："><a href="#可作为GC-Roots的对象包含以下几种：" class="headerlink" title="可作为GC Roots的对象包含以下几种："></a>可作为GC Roots的对象包含以下几种：</h5><ul>
-<li>虚拟机栈中引用的对象</li>
-<li>方法区中类静态属性和常量引用的对象</li>
-<li>本地方法栈中引用的对象 </li>
-</ul>
-<h2 id="什么时候回收"><a href="#什么时候回收" class="headerlink" title="什么时候回收"></a>什么时候回收</h2><p>虚拟机的垃圾回收是一个典型的后台守护（Daemon）进程，可以理解为一种优先级较低的线程，该线程等待操作系统分配时间片运行。垃圾回收贯穿于虚拟机的整个运行期，随虚拟机的启动或停止而存亡。<br>也可以通过调用 System.gc() 主动执行垃圾回收方法。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">System.gc();</span><br></pre></td></tr></table></figure></p>
-<h2 id="如何回收"><a href="#如何回收" class="headerlink" title="如何回收"></a>如何回收</h2><p>垃圾回收比较常见的策略有如下几种</p>
-<h3 id="1-标记-清除算法"><a href="#1-标记-清除算法" class="headerlink" title="1.标记-清除算法"></a>1.标记-清除算法</h3><p>最基础的一种回收算法。首先根据可达性分析标记处所有需要回收的对象，然后再统一回收所有被标记的对象。<br>大致过程如下图所示：<br><img src="http://p8e6biisu.bkt.clouddn.com/%E6%A0%87%E8%AE%B0%E6%B8%85%E9%99%A4%E7%AE%97%E6%B3%95.jpeg" alt="标记-清除算法"><br>这种算法有一些不足，一是标记和清除两个过程的效率问题，都比较低；二是空间问题，标记清除后会产生大量不连续的内存碎片，内存碎片太多会造成后面需要分配一个大对象时找不到足够的连续内存空间，不得不触发另一次垃圾回收动作。</p>
-<h3 id="2-复制算法"><a href="#2-复制算法" class="headerlink" title="2.复制算法"></a>2.复制算法</h3><p>复制算法将内存空间分为大小相等的两块，每次只使用其中的一块。当该块内存空间消耗殆尽时，将该块还存活的对象一次性复制到另一半内存块中，并将原先已经满的内存块里的对象一次性清楚掉。这解决了标记算法的效率问题，同时也就不会有内存碎片的问题。但是这种方式的代价就是可用内存降为原先的一半，这种方式还是非常浪费内存的。<br><img src="http://p8e6biisu.bkt.clouddn.com/%E5%A4%8D%E5%88%B6%E7%AE%97%E6%B3%95.jpeg" alt="复制算法"><br>但在大多数情况下，对象的生命周期都是非常短暂的，所以我们没有必要把一半的内存空间都作为备用空间，而是将内存划分为一块较大的 Eden 空间和两块较小的 Survivor 空间（S1 和 S2），每次只在 Eden 和 S1 中分配对象，在进行垃圾回收时，将存活的对象一次性复制至 S2 区，然后清理 Eden 和 S1 的内存空间。在绝大多数情况下，S2 都足够容纳 Eden 和 S1 存活下来的对象，但这并不是绝对的。在 S2 内存不足时，再去向老年代申请新的内存。<br>在 HotSpot 虚拟机中，Eden 和 Survivor 的默认比例为 8:1，这样只有十分之一的内存会被浪费。</p>
-<h3 id="3-标记-整理算法"><a href="#3-标记-整理算法" class="headerlink" title="3.标记-整理算法"></a>3.标记-整理算法</h3><p>复制算法中，老年代为内存的复制提供了分配担保，在 S2 不足时可以由老年代来继续存储存活的对象。但复制算法不太适合老年代，这是为什么呢？老年代的对象存活率相对比较高，如果这时进行复制效率不会特别高，需要复制的对象也相对年轻代更多；同时，老年代以外再没有多余的空间可以进行分配担保，除非浪费一半的空间用作两个块之间的复制。<br>老年代一般采用<strong>标记-整理算法</strong>，其中标记与标记-清除算法的过程相同，但清除时不是简单的清除掉被标记的对象，而是将所有存活的对象向一端移动，这样就不会存在内存碎片。<br><img src="http://p8e6biisu.bkt.clouddn.com/%E6%A0%87%E8%AE%B0%E6%95%B4%E7%90%86%E7%AE%97%E6%B3%95.jpeg" alt="标记-整理算法"></p>
-<h3 id="4-分代回收算法"><a href="#4-分代回收算法" class="headerlink" title="4.分代回收算法"></a>4.分代回收算法</h3><p>分代就是将内存区域按照对象的存货周期进行划分划分，一般分为年轻代和年老代，然后在不同的分代中按照不同方式进行垃圾回收。例如在年轻代中，大多数对象生命周期很短，只存活少量对象，则采用复制算法，效率高，需要多余的空间较少；在年老代，对象不容易消亡，没有额外的空间用于复制，则一般采用标记-整理算法进行垃圾回收。   </p>
-<h3 id="附录：HotSpot-的垃圾收集器简要介绍"><a href="#附录：HotSpot-的垃圾收集器简要介绍" class="headerlink" title="附录：HotSpot 的垃圾收集器简要介绍"></a>附录：HotSpot 的垃圾收集器简要介绍</h3><h5 id="Serial-收集器"><a href="#Serial-收集器" class="headerlink" title="Serial 收集器"></a>Serial 收集器</h5><p>单线程，会 Stop The World</p>
-<h5 id="ParNew-收集器"><a href="#ParNew-收集器" class="headerlink" title="ParNew 收集器"></a>ParNew 收集器</h5><p>Serial 的多线程版本（仍然会Stop The World），可配合 CMS 收集器使用</p>
-<h5 id="Parallel-Scanvenge-收集器"><a href="#Parallel-Scanvenge-收集器" class="headerlink" title="Parallel Scanvenge 收集器"></a>Parallel Scanvenge 收集器</h5><p>新生代收集器，使用复制算法，多线程并行，吞吐量优先</p>
-<h5 id="Serial-Old-收集器"><a href="#Serial-Old-收集器" class="headerlink" title="Serial Old 收集器"></a>Serial Old 收集器</h5><p>Serial 的年老代版本，采用标记-整理算法，单线程</p>
-<h5 id="Parallel-Old-收集器"><a href="#Parallel-Old-收集器" class="headerlink" title="Parallel Old 收集器"></a>Parallel Old 收集器</h5><p>Parallel Scanvenge 的年老代版本，多线程</p>
-<h5 id="CMS-收集器"><a href="#CMS-收集器" class="headerlink" title="CMS 收集器"></a>CMS 收集器</h5><p>基于标记-清除算法，并发标记、并发清除，降低系统停顿时间</p>
-<h5 id="G1-收集器"><a href="#G1-收集器" class="headerlink" title="G1 收集器"></a>G1 收集器</h5><p>并行并发，分代收集，空间整合，可预测的停顿</p>
-
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-
-
-</div>
-
-    <a data-url="http://yoursite.com/2018/06/10/JVM-初窥-二-垃圾收集器/" data-id="cjilvice30002mww0me4z93jh" class="article-share-link"><i class="fa fa-share"></i>Compartir</a>
-<script>
-    (function ($) {
-        // Prevent duplicate binding
-        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
-            __SHARE_BUTTON_BINDED__ = true;
-        } else {
-            return;
-        }
-        $('body').on('click', function() {
-            $('.article-share-box.on').removeClass('on');
-        }).on('click', '.article-share-link', function(e) {
-            e.stopPropagation();
-
-            var $this = $(this),
-                url = $this.attr('data-url'),
-                encodedUrl = encodeURIComponent(url),
-                id = 'article-share-box-' + $this.attr('data-id'),
-                offset = $this.offset(),
-                box;
-
-            if ($('#' + id).length) {
-                box = $('#' + id);
-
-                if (box.hasClass('on')){
-                    box.removeClass('on');
-                    return;
-                }
-            } else {
-                var html = [
-                    '<div id="' + id + '" class="article-share-box">',
-                        '<input class="article-share-input" value="' + url + '">',
-                        '<div class="article-share-links">',
-                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
-                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
-                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
-                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
-                        '</div>',
-                    '</div>'
-                ].join('');
-
-              box = $(html);
-
-              $('body').append(box);
-            }
-
-            $('.article-share-box.on').hide();
-
-            box.css({
-                top: offset.top + 25,
-                left: offset.left
-            }).addClass('on');
-
-        }).on('click', '.article-share-box', function (e) {
-            e.stopPropagation();
-        }).on('click', '.article-share-box-input', function () {
-            $(this).select();
-        }).on('click', '.article-share-box-link', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
-        });
-    })(jQuery);
-</script>
-
-            
     
+</nav>
 
-        </footer>
-    </div>
+
     
 </article>
 
 
-
-    <article id="post-JVM-初窥-一-JVM内存区域划分" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
     
-        <h1 itemprop="name">
-            <a class="article-title" href="/2018/05/06/JVM-初窥-一-JVM内存区域划分/">JVM 初窥(一) JVM内存区域划分</a>
-        </h1>
     
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2018/05/06/JVM-初窥-一-JVM内存区域划分/">
-            <time datetime="2018-05-05T16:02:13.000Z" itemprop="datePublished">2018-05-06</time>
-        </a>
-    </div>
-
-
-                        
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/JVM/">JVM</a>, <a class="tag-link" href="/tags/Java虚拟机/">Java虚拟机</a>
-    </div>
-
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <p>Java 虚拟机（下文简称JVM）在运行时，会将其管理的内存划分成几个部分。本文将介绍 JVM 是如何划分内存区域，每个区域服务于哪些对象，作用是什么。</p>
-<h2 id="运行时数据区域"><a href="#运行时数据区域" class="headerlink" title="运行时数据区域"></a>运行时数据区域</h2><p>根据《Java虚拟机规范》，将JVM内存区域划分为如下图所示的几块。<br><img src="http://p8e6biisu.bkt.clouddn.com/blogJVM%E5%86%85%E5%AD%98%E5%88%92%E5%88%86.jpeg" alt=""></p>
-<h3 id="1-程序计数器（Program-Counter-Register）"><a href="#1-程序计数器（Program-Counter-Register）" class="headerlink" title="1.程序计数器（Program Counter Register）"></a>1.程序计数器（Program Counter Register）</h3><p>程序计数器相对于其他JVM内存区域占用较少的内存空间，它相当于是当前线程执行字节码的行号指示器。JVM中的多线程会根据处理器分配的时间片轮流占用处理器执行程序代码，在线程切换后，为了回到执行的正确位置，每个线程都必须有一个独占的程序计数器。这里的独占指各个线程的程序计数器互不影响，数据独立存储，所以该块内存区域是线程隔离的内存。</p>
-<p>虚拟机规范规定，如果线程执行的是一个Java方法，则程序计数器记录的是正在执行的虚拟机字节码指令的地址，JVM是把class文件转化成（通过解释器或JIT编译器）字节码去执行的；如果执行的是一个native方法，则这个计数器记录的值为undefined。</p>
-<p>该区域是唯一一个不会发生OOM（内存溢出）的内存区域。</p>
-<h3 id="2-虚拟机栈（VM-Stack）"><a href="#2-虚拟机栈（VM-Stack）" class="headerlink" title="2.虚拟机栈（VM Stack）"></a>2.虚拟机栈（VM Stack）</h3><p>虚拟机栈又经常被称为Java栈，是Java方法执行的内存模型，它也是线程隔离的，不同的线程都有自己的Java栈。在线程执行Java方法时，会在栈顶中创建一个栈帧（Stack Frame），栈帧中存放局部变量表，操作数栈，方法出口，运行池常量池的引用等数据。每一个 Java 方法从调用到执行结束的过程，就对应着一个栈帧在虚拟机栈中入栈和出栈的过程。</p>
-<p>如果方法的调用链过深，超过了JVM所允许的栈最大深度，则会抛出 StackOverflowError 的异常。如果虚拟机栈动态扩展但无法申请到内存，则会抛出 OOM 异常。</p>
-<h3 id="3-本地方法栈（Native-Method-Stack）"><a href="#3-本地方法栈（Native-Method-Stack）" class="headerlink" title="3.本地方法栈（Native Method Stack）"></a>3.本地方法栈（Native Method Stack）</h3><p>本地方法栈和虚拟机栈类似，都是用于执行方法时在栈中记录方法栈帧信息的。只不过本地方法栈执行的是native方法，也因此叫做“本地”方法栈。</p>
-<p>JVM 规范没有强制指定如何实现本地方法栈以及实用的方法，所以不同的 JVM 会有不同的实现。HotSpot 虚拟机是将虚拟机栈和本地方法合二为一来解决这个问题的。</p>
-<p>本地方法栈也同虚拟机栈一样会抛出 StackOverflowError 和 OOM 异常。</p>
-<h3 id="4-Java-堆（Java-Heap）"><a href="#4-Java-堆（Java-Heap）" class="headerlink" title="4.Java 堆（Java Heap）"></a>4.Java 堆（Java Heap）</h3><p>普遍来说，Java 堆是 JVM 内存区域中最大的一块区域，在 JVM 启动时创建，并且被所有线程共享。如同 JVM 规范的规定，所有的对象实例以及数组都在 Java 堆上分配。</p>
-<p>Java 堆中，又可以细分为新生代和老年代，新生代又可细分为 Eden 空间，From Survivor 空间以及 To Survivor 空间。JVM 的垃圾回收（Garbage Collection）主要就是在这块内存区域中发生的，垃圾回收的分代收集就是针对于 Java 堆中不同的划分进行 GC 的。</p>
-<p><img src="http://p8e6biisu.bkt.clouddn.com/Java%E5%A0%86.jpg" alt="Java 堆"></p>
-<p>Java 堆的大小可以在启动时通过参数 -Xmx 和 -Xms 指定。如果在Java 堆上分配对象时没有申请到足够的内存，则会抛出 OOM 异常。</p>
-<h3 id="5-方法区（Method-Area）"><a href="#5-方法区（Method-Area）" class="headerlink" title="5.方法区（Method Area）"></a>5.方法区（Method Area）</h3><p>方法区中存放了 JVM 加载的类信息、常量、静态变量、即时编译器编译后的代码等数据。这块内存区域也是被各个线程共享的。方法区又被称为非堆（Non-Heap），用于与堆区分开。</p>
-<p>当方法区无法满足内存分配需求时，将会抛出 OOM 异常。</p>
-<h4 id="常量池"><a href="#常量池" class="headerlink" title="常量池"></a>常量池</h4><ul>
-<li>静态常量池：指 class 文件中的常量池，包括字面量（文本字符串、final类型的常量），还包括类、方法的信息。</li>
-<li>运行时常量池：JVM 在类加载后讲 class 文件中的常量池载入到<strong>堆内存</strong>中，方法区中保存了这些<strong>对象的引用</strong>。</li>
-</ul>
-<h4 id="永久代（PermGen）-和-元空间（Metaspace）"><a href="#永久代（PermGen）-和-元空间（Metaspace）" class="headerlink" title="永久代（PermGen） 和 元空间（Metaspace）"></a>永久代（PermGen） 和 元空间（Metaspace）</h4><p>方法区其实说到底就是 <strong>JVM 规范</strong>中定义的一个概念，并没有规定具体要将方法区存放到什么位置。在 JDK6 和 JDK7 HotSpot 虚拟机的实现中，方法区是作为 Java 堆的一部分而存在的，被称为<strong>永久代</strong>，其大小通过 -XX:MaxPermSize 来指定。</p>
-<p>但这样的实现是不合理的，一方面永久代运行时遇到的 GC 很少，另一方面永久代可能会因为内存不足抛出 OOM 的异常。所以在 JDK 8 的 HotSpot 虚拟机中，移除了永久代这部分空间，取而代之是<strong>元空间</strong>。元空间存储在本地内存中，这部分内存不属于 JVM 的内存区域，因此不会受限于 JVM 的内存限制。其大小可以通过 -XX:MaxMetaspaceSize 指定，若不指定这个参数，则会在运行时根据需求动态调整。</p>
-<h3 id="6-直接内存（Direct-Memory）"><a href="#6-直接内存（Direct-Memory）" class="headerlink" title="6.直接内存（Direct Memory）"></a>6.直接内存（Direct Memory）</h3><p>直接内存不属于虚拟机运行时数据区的一部分，其内存的分配也不会受到 Java 堆大小的限制。但是，会受到计算机总内存大小以及处理器寻址空间的限制。如果虚拟机各个内存区域之和大于物理内存限制，也会导致 OOM 异常。<br>JDK 1.4 中加入了 NIO 类，引入了一种基于通道（Channel）与缓冲区（Buffer）的 I/O 方式，其可以使用 Native 方法直接分配堆外内存，然后通过引用访问这块内存进行操作，这样由于了避免在 Java 堆中来回复制数据，可以提高程序的性能。</p>
-
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-
-
-</div>
-
-    <a data-url="http://yoursite.com/2018/05/06/JVM-初窥-一-JVM内存区域划分/" data-id="cjilvicdy0000mww0yx9zh7gh" class="article-share-link"><i class="fa fa-share"></i>Compartir</a>
-<script>
-    (function ($) {
-        // Prevent duplicate binding
-        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
-            __SHARE_BUTTON_BINDED__ = true;
-        } else {
-            return;
-        }
-        $('body').on('click', function() {
-            $('.article-share-box.on').removeClass('on');
-        }).on('click', '.article-share-link', function(e) {
-            e.stopPropagation();
-
-            var $this = $(this),
-                url = $this.attr('data-url'),
-                encodedUrl = encodeURIComponent(url),
-                id = 'article-share-box-' + $this.attr('data-id'),
-                offset = $this.offset(),
-                box;
-
-            if ($('#' + id).length) {
-                box = $('#' + id);
-
-                if (box.hasClass('on')){
-                    box.removeClass('on');
-                    return;
-                }
-            } else {
-                var html = [
-                    '<div id="' + id + '" class="article-share-box">',
-                        '<input class="article-share-input" value="' + url + '">',
-                        '<div class="article-share-links">',
-                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
-                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
-                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
-                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
-                        '</div>',
-                    '</div>'
-                ].join('');
-
-              box = $(html);
-
-              $('body').append(box);
-            }
-
-            $('.article-share-box.on').hide();
-
-            box.css({
-                top: offset.top + 25,
-                left: offset.left
-            }).addClass('on');
-
-        }).on('click', '.article-share-box', function (e) {
-            e.stopPropagation();
-        }).on('click', '.article-share-box-input', function () {
-            $(this).select();
-        }).on('click', '.article-share-box-link', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
-        });
-    })(jQuery);
-</script>
-
-            
-    
-
-        </footer>
-    </div>
-    
-</article>
-
 
 </section>
             
